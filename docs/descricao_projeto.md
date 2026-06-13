@@ -39,8 +39,8 @@ Desenvolvimento de uma solução completa de Business Intelligence (BI) focada n
 - **ETL:** Python (pandas) + SQL Server Integration Services (SSIS)
 - **Armazenamento:** SQL Server / PostgreSQL
 - **Visualização:** Power BI
-- **Modelo Dimensional:** Star schema com Fact_Performance e dimensões Tempo, Piloto, Circuito, Construtor
-- **Medidas:** Pontos Acumulados, Tempo Total em Pit Stops, Posições Ganhas
+- **Modelo Dimensional:** Constelação de factos com `Fact_Performance` (grão piloto×corrida) e `Fact_Volta` (grão piloto×corrida×volta); dimensões `Dim_Tempo`, `Dim_Piloto`, `Dim_Circuito`, `Dim_Construtor`, `Dim_Composto`
+- **Medidas:** `Fact_Performance` — Pontos, Tempo Total Pit Stops, Posições Ganhas, Abandono Mecânico; `Fact_Volta` — Tempo Volta, Tempos Setor S1/S2/S3, Posição na Volta, Volta Sob SC, Paragem Box
 - **Refrescamento:** Incremental, agendado nas 24h após cada Grande Prémio
 
 ### 3.4. Requisitos de Qualidade

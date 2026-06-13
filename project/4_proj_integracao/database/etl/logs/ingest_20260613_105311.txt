@@ -1,0 +1,391 @@
+10:53:11 | INFO    | ============================================================
+10:53:11 | INFO    | F1_DB Ingestion Script
+10:53:11 | INFO    | Data path: C:\dev\Projects\f1_dw\project\_data
+10:53:11 | INFO    | ============================================================
+10:53:11 | INFO    | Conexao a base de dados OK
+10:53:11 | INFO    | === INGESTAO CSV ===
+10:53:12 | INFO    |   seasons.csv -> seasons (77 linhas)
+10:53:12 | INFO    |   circuits.csv -> circuits (78 linhas)
+10:53:12 | INFO    |   constructors.csv -> constructors (214 linhas)
+10:53:12 | INFO    |   drivers.csv -> drivers (865 linhas)
+10:53:12 | INFO    |   status.csv -> status (140 linhas)
+10:53:13 | INFO    |   races.csv -> races (1171 linhas)
+10:53:33 | INFO    |   results.csv -> results (27370 linhas)
+10:53:33 | INFO    |   sprint_results.csv -> sprint_results (546 linhas)
+10:53:34 | INFO    |   Duplicados removidos: 1979
+10:53:54 | INFO    |   lap_times.csv -> lap_times (870542 linhas)
+10:54:01 | INFO    |   pit_stops.csv -> pit_stops (22335 linhas)
+10:54:04 | INFO    |   qualifying.csv -> qualifying (11102 linhas)
+10:54:05 | INFO    |   constructor_results.csv -> constructor_results (12931 linhas)
+10:54:06 | INFO    |   constructor_standings.csv -> constructor_standings (13697 linhas)
+10:54:07 | INFO    |   driver_standings.csv -> driver_standings (35493 linhas)
+10:54:07 | INFO    |   safety_cars.csv -> safety_cars (370 linhas)
+10:54:07 | INFO    |   red_flags.csv -> red_flags (99 linhas)
+10:54:07 | INFO    |   fatal_accidents_drivers.csv -> fatal_accidents_drivers (51 linhas)
+10:54:07 | INFO    |   fatal_accidents_marshalls.csv -> fatal_accidents_marshalls (5 linhas)
+10:54:08 | INFO    |   virtual_safety_car -> 244 linhas
+10:54:08 | INFO    | === INGESTAO JSON (pasta a pasta) ===
+10:54:08 | INFO    | Encontradas 54 sessoes Race
+10:54:08 | INFO    |   weather (148 registos)
+10:54:08 | INFO    |   session_drivers (20 registos)
+10:54:08 | INFO    |   session_corners (16 registos)
+10:54:08 | INFO    |   race_control_msgs (130 registos)
+10:54:26 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Abu Dhabi Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2599 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (1, 'LAW', 99.017, 1, 'MEDIUM', 1, None, 40.18, 34.909, 10, 1, 1, '12', None, None, 0, 1, 'LAW', 114.148, 2, 'MEDIUM', 1, 18.375, 52.882, 42.891, 10, 2, 1, '126', None, None, 0, 1, 'LAW', 100.324, 3, 'MEDIUM', 1, 23.719, 42.925, 33.68, 11, 3, 1, '671', None, None, 0, 1, 'LAW' ... 796 parameters truncated ... None, 1, 1, 'LAW', 88.819, 54, 'HARD', 4, 17.771, 38.508, 32.54, 17, 31, 0, '1', None, None, 1, 1, 'LAW', 89.184, 55, 'HARD', 4, 17.839, 38.633, 32.712, 17, 32, 0, '1', None, None, 1, 1, 'LAW', None, 56, 'HARD', 4, None, None, None, 'None', 33, 0, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:54:27 | INFO    |   weather (144 registos)
+10:54:27 | INFO    |   session_drivers (19 registos)
+10:54:27 | INFO    |   session_corners (14 registos)
+10:54:27 | INFO    |   race_control_msgs (82 registos)
+10:54:36 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Australian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 599 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2, 'HAM', 93.688, 1, 'SOFT', 1, None, 18.674, 36.983, 10, 1, 1, '1', None, None, 0, 2, 'HAM', 84.055, 2, 'SOFT', 1, 29.971, 18.028, 36.056, 10, 2, 1, '1', None, None, 1, 2, 'HAM', 83.07, 3, 'SOFT', 1, 29.083, 18.05, 35.937, 10, 3, 1, '1', None, None, 1, 2, 'HAM' ... 156 parameters truncated ... None, 1, 2, 'HAM', 82.712, 14, 'HARD', 2, 28.876, 18.088, 35.748, 11, 7, 1, '1', None, None, 1, 2, 'HAM', 84.141, 15, 'HARD', 2, 29.861, 17.993, 36.287, 11, 8, 1, '1', None, None, 1, 2, 'HAM', None, 16, 'HARD', 2, None, None, None, 'None', 9, 1, '126', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:54:36 | INFO    |   weather (143 registos)
+10:54:36 | INFO    |   session_drivers (20 registos)
+10:54:36 | INFO    |   session_corners (10 registos)
+10:54:36 | INFO    |   race_control_msgs (124 registos)
+10:55:36 | INFO    |   weather (152 registos)
+10:55:36 | INFO    |   session_drivers (20 registos)
+10:55:36 | INFO    |   session_corners (20 registos)
+10:55:37 | INFO    |   race_control_msgs (115 registos)
+10:56:13 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Azerbaijan Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2299 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (4, 'PER', 113.923, 1, 'MEDIUM', 1, None, 44.247, 25.923, 3, 1, 1, '1', None, None, 0, 4, 'PER', 109.236, 2, 'MEDIUM', 1, 39.563, 43.941, 25.732, 3, 2, 1, '1', None, None, 1, 4, 'PER', 108.814, 3, 'MEDIUM', 1, 39.205, 43.762, 25.847, 3, 3, 1, '1', None, None, 1, 4, 'PER' ... 700 parameters truncated ... None, 1, 4, 'PER', 108.303, 48, 'HARD', 2, 39.25, 43.74, 25.313, 3, 35, 1, '1', None, None, 1, 4, 'PER', 108.45, 49, 'HARD', 2, 39.279, 43.986, 25.185, 3, 36, 1, '1', None, None, 1, 4, 'PER', None, 50, 'HARD', 2, None, None, None, 'None', 37, 1, '126', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:56:13 | INFO    |   weather (157 registos)
+10:56:13 | INFO    |   session_drivers (20 registos)
+10:56:13 | INFO    |   session_corners (15 registos)
+10:56:13 | INFO    |   race_control_msgs (69 registos)
+10:57:17 | INFO    |   weather (137 registos)
+10:57:17 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Belgian Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (6, 'HAM', 'Mercedes', 0, None, None, 6, 'PIA', 'McLaren', 0, None, None, 6, 'LEC', 'Ferrari', 0, None, None, 6, 'VER', 'Red Bull Racing', 0, None, None, 6, 'NOR', 'McLaren', 0, None, None, 6, 'SAI', 'Ferrari', 0, None, None, 6, 'PER', 'Red Bull Racing', 0, None, None, 6, 'ALO', 'Aston Martin', 0, None, None, 6, 'OCO' ... 20 parameters truncated ... None, None, 6, 'GAS', 'Alpine', 0, None, None, 6, 'MAG', 'Haas F1 Team', 0, None, None, 6, 'BOT', 'Kick Sauber', 0, None, None, 6, 'TSU', 'RB', 0, None, None, 6, 'SAR', 'Williams', 0, None, None, 6, 'HUL', 'Haas F1 Team', 0, None, None, 6, 'ZHO', 'Kick Sauber', 0, None, None, 6, 'RUS', 'Mercedes', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+10:57:18 | INFO    |   weather (147 registos)
+10:57:18 | INFO    |   session_drivers (20 registos)
+10:57:18 | INFO    |   session_corners (18 registos)
+10:57:18 | INFO    |   race_control_msgs (108 registos)
+10:57:28 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\British Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (7, 'GAS', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '1', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:57:28 | INFO    |   weather (113 registos)
+10:57:28 | INFO    |   session_drivers (20 registos)
+10:57:28 | INFO    |   session_corners (14 registos)
+10:57:29 | INFO    |   race_control_msgs (128 registos)
+10:57:29 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Canadian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2449 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (8, 'ALB', 115.787, 1, 'INTERMEDIATE', 1, None, 34.411, 40.356, 12, 1, 1, '12', None, None, 0, 8, 'ALB', 102.91, 2, 'INTERMEDIATE', 1, 30.886, 32.99, 39.034, 13, 2, 1, '1', None, None, 1, 8, 'ALB', 99.947, 3, 'INTERMEDIATE', 1, 29.853, 32.228, 37.866, 13, 3, 1, '1', None, None, 1, 8, 'ALB' ... 748 parameters truncated ... None, 1, 8, 'ALB', 79.359, 51, 'MEDIUM', 3, 23.227, 24.977, 31.155, 10, 7, 1, '1', None, None, 1, 8, 'ALB', 82.184, 52, 'MEDIUM', 3, 22.826, 27.769, 31.589, 11, 8, 1, '12', None, None, 1, 8, 'ALB', None, 53, 'MEDIUM', 3, None, None, None, 'None', 9, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:57:29 | INFO    |   weather (165 registos)
+10:57:29 | INFO    |   session_drivers (20 registos)
+10:57:29 | INFO    |   session_corners (16 registos)
+10:57:29 | INFO    |   race_control_msgs (56 registos)
+10:57:37 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Chinese Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 799 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (9, 'BOT', 108.149, 1, 'MEDIUM', 1, None, 32.27, 44.817, 11, 1, 1, '1', None, None, 0, 9, 'BOT', 103.041, 2, 'MEDIUM', 1, 27.648, 31.229, 44.164, 11, 2, 1, '1', None, None, 1, 9, 'BOT', 102.548, 3, 'MEDIUM', 1, 27.242, 31.336, 43.97, 11, 3, 1, '1', None, None, 1, 9, 'BOT' ... 220 parameters truncated ... None, 1, 9, 'BOT', 102.768, 18, 'HARD', 2, 27.472, 30.886, 44.41, 11, 9, 1, '1', None, None, 1, 9, 'BOT', 102.252, 19, 'HARD', 2, 27.245, 30.664, 44.343, 11, 10, 1, '1', None, None, 1, 9, 'BOT', None, 20, 'HARD', 2, None, None, None, 'None', 11, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:57:38 | INFO    |   weather (153 registos)
+10:57:38 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Dutch Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (10, 'NOR', 'McLaren', 0, None, None, 10, 'VER', 'Red Bull Racing', 0, None, None, 10, 'LEC', 'Ferrari', 0, None, None, 10, 'PIA', 'McLaren', 0, None, None, 10, 'SAI', 'Ferrari', 0, None, None, 10, 'PER', 'Red Bull Racing', 0, None, None, 10, 'RUS', 'Mercedes', 0, None, None, 10, 'HAM', 'Mercedes', 0, None, None, 10, 'GAS' ... 20 parameters truncated ... None, None, 10, 'STR', 'Aston Martin', 0, None, None, 10, 'ALB', 'Williams', 0, None, None, 10, 'OCO', 'Alpine', 0, None, None, 10, 'SAR', 'Williams', 0, None, None, 10, 'TSU', 'RB', 0, None, None, 10, 'MAG', 'Haas F1 Team', 0, None, None, 10, 'BOT', 'Kick Sauber', 0, None, None, 10, 'ZHO', 'Kick Sauber', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+10:57:38 | INFO    |   weather (143 registos)
+10:57:38 | INFO    |   session_drivers (20 registos)
+10:57:38 | INFO    |   session_corners (19 registos)
+10:57:38 | INFO    |   race_control_msgs (98 registos)
+10:59:01 | INFO    |   weather (155 registos)
+10:59:01 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Hungarian Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (12, 'PIA', 'McLaren', 0, None, None, 12, 'NOR', 'McLaren', 0, None, None, 12, 'HAM', 'Mercedes', 0, None, None, 12, 'LEC', 'Ferrari', 0, None, None, 12, 'VER', 'Red Bull Racing', 0, None, None, 12, 'SAI', 'Ferrari', 0, None, None, 12, 'PER', 'Red Bull Racing', 0, None, None, 12, 'RUS', 'Mercedes', 0, None, None, 12, 'TSU' ... 20 parameters truncated ... None, None, 12, 'HUL', 'Haas F1 Team', 0, None, None, 12, 'ALB', 'Williams', 0, None, None, 12, 'MAG', 'Haas F1 Team', 0, None, None, 12, 'BOT', 'Kick Sauber', 0, None, None, 12, 'SAR', 'Williams', 0, None, None, 12, 'OCO', 'Alpine', 0, None, None, 12, 'ZHO', 'Kick Sauber', 0, None, None, 12, 'GAS', 'Alpine', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+10:59:01 | INFO    |   weather (133 registos)
+10:59:01 | INFO    |   session_drivers (20 registos)
+10:59:01 | INFO    |   session_corners (11 registos)
+10:59:01 | INFO    |   race_control_msgs (59 registos)
+10:59:56 | INFO    |   weather (181 registos)
+10:59:56 | INFO    |   session_drivers (20 registos)
+10:59:56 | INFO    |   session_corners (18 registos)
+10:59:56 | INFO    |   race_control_msgs (66 registos)
+10:59:56 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Japanese Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (14, 'ALB', None, 1, 'SOFT', 1, None, None, None, 'None', 1, 1, '125', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+10:59:56 | INFO    |   weather (143 registos)
+10:59:56 | INFO    |   session_drivers (20 registos)
+10:59:56 | INFO    |   session_corners (17 registos)
+10:59:56 | INFO    |   race_control_msgs (35 registos)
+11:00:53 | INFO    |   weather (159 registos)
+11:00:53 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Mexico City Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (16, 'SAI', 'Ferrari', 0, None, None, 16, 'NOR', 'McLaren', 0, None, None, 16, 'LEC', 'Ferrari', 0, None, None, 16, 'HAM', 'Mercedes', 0, None, None, 16, 'RUS', 'Mercedes', 0, None, None, 16, 'VER', 'Red Bull Racing', 0, None, None, 16, 'MAG', 'Haas F1 Team', 0, None, None, 16, 'PIA', 'McLaren', 0, None, None, 16, 'HUL' ... 20 parameters truncated ... None, None, 16, 'OCO', 'Alpine', 0, None, None, 16, 'BOT', 'Kick Sauber', 0, None, None, 16, 'ZHO', 'Kick Sauber', 0, None, None, 16, 'LAW', 'RB', 0, None, None, 16, 'PER', 'Red Bull Racing', 0, None, None, 16, 'ALO', 'Aston Martin', 0, None, None, 16, 'ALB', 'Williams', 0, None, None, 16, 'TSU', 'RB', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+11:00:53 | INFO    |   weather (150 registos)
+11:00:53 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Miami Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (17, 'VER', 'Red Bull Racing', 0, None, None, 17, 'GAS', 'Alpine', 0, None, None, 17, 'PER', 'Red Bull Racing', 0, None, None, 17, 'ALO', 'Aston Martin', 0, None, None, 17, 'LEC', 'Ferrari', 0, None, None, 17, 'STR', 'Aston Martin', 0, None, None, 17, 'SAR', 'Williams', 0, None, None, 17, 'MAG', 'Haas F1 Team', 0, None, None, 17, 'TSU' ... 20 parameters truncated ... None, None, 17, 'RIC', 'RB', 0, None, None, 17, 'OCO', 'Alpine', 0, None, None, 17, 'NOR', 'McLaren', 0, None, None, 17, 'HAM', 'Mercedes', 0, None, None, 17, 'SAI', 'Ferrari', 0, None, None, 17, 'RUS', 'Mercedes', 0, None, None, 17, 'BOT', 'Kick Sauber', 0, None, None, 17, 'PIA', 'McLaren', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+11:00:53 | INFO    |   weather (200 registos)
+11:00:53 | INFO    |   session_drivers (20 registos)
+11:00:53 | INFO    |   session_corners (19 registos)
+11:00:54 | INFO    |   race_control_msgs (118 registos)
+11:01:25 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Monaco Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (18, 'HUL', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '1254', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:01:25 | INFO    |   weather (151 registos)
+11:01:25 | INFO    |   session_drivers (20 registos)
+11:01:25 | INFO    |   session_corners (16 registos)
+11:01:25 | INFO    |   race_control_msgs (113 registos)
+11:01:38 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Qatar Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (19, 'COL', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:01:38 | INFO    |   weather (146 registos)
+11:01:38 | INFO    |   session_drivers (20 registos)
+11:01:38 | INFO    |   session_corners (27 registos)
+11:01:38 | INFO    |   race_control_msgs (66 registos)
+11:02:29 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Saudi Arabian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (20, 'STR', 102.429, 1, 'MEDIUM', 1, None, 30.865, 30.889, 9, 2, 0, '1', None, None, 0, 20, 'STR', 96.094, 2, 'MEDIUM', 1, 35.771, 30.16, 30.163, 9, 3, 0, '1', None, None, 1, 20, 'STR', 95.79, 3, 'MEDIUM', 1, 35.453, 30.148, 30.189, 9, 4, 0, '1', None, None, 1, 20, 'STR', 95.735, 4, 'MEDIUM', 1, 35.301, 30.247, 30.187, 9, 5, 0, '1', None, None, 1, 20, 'STR', 95.56, 5, 'MEDIUM', 1, 35.293, 30.188, 30.079, 9, 6, 0, '1', None, None, 1, 20, 'STR', None, 6, 'MEDIUM', 1, None, None, None, 'None', 7, 0, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:02:29 | INFO    |   weather (160 registos)
+11:02:29 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\Singapore Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (21, 'NOR', 'McLaren', 0, None, None, 21, 'VER', 'Red Bull Racing', 0, None, None, 21, 'PIA', 'McLaren', 0, None, None, 21, 'RUS', 'Mercedes', 0, None, None, 21, 'LEC', 'Ferrari', 0, None, None, 21, 'HAM', 'Mercedes', 0, None, None, 21, 'SAI', 'Ferrari', 0, None, None, 21, 'ALO', 'Aston Martin', 0, None, None, 21, 'HUL' ... 20 parameters truncated ... None, None, 21, 'OCO', 'Alpine', 0, None, None, 21, 'STR', 'Aston Martin', 0, None, None, 21, 'ZHO', 'Kick Sauber', 0, None, None, 21, 'BOT', 'Kick Sauber', 0, None, None, 21, 'GAS', 'Alpine', 0, None, None, 21, 'RIC', 'RB', 0, None, None, 21, 'MAG', 'Haas F1 Team', 0, None, None, 21, 'ALB', 'Williams', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+11:02:29 | INFO    |   weather (154 registos)
+11:02:29 | INFO    |   session_drivers (20 registos)
+11:02:29 | INFO    |   session_corners (14 registos)
+11:02:29 | INFO    |   race_control_msgs (105 registos)
+11:03:35 | INFO    |   weather (201 registos)
+11:03:35 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\São Paulo Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (23, 'VER', 'Red Bull Racing', 0, None, None, 23, 'GAS', 'Alpine', 0, None, None, 23, 'PER', 'Red Bull Racing', 0, None, None, 23, 'ALO', 'Aston Martin', 0, None, None, 23, 'LEC', 'Ferrari', 0, None, None, 23, 'STR', 'Aston Martin', 0, None, None, 23, 'TSU', 'RB', 0, None, None, 23, 'ZHO', 'Kick Sauber', 0, None, None, 23, 'HUL' ... 14 parameters truncated ... None, None, 23, 'NOR', 'McLaren', 0, None, None, 23, 'COL', 'Williams', 0, None, None, 23, 'HAM', 'Mercedes', 0, None, None, 23, 'BEA', 'Haas F1 Team', 0, None, None, 23, 'SAI', 'Ferrari', 0, None, None, 23, 'RUS', 'Mercedes', 0, None, None, 23, 'BOT', 'Kick Sauber', 0, None, None, 23, 'PIA', 'McLaren', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+11:03:35 | INFO    |   weather (155 registos)
+11:03:35 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2024\United States Grand Prix\Race: (pyodbc.IntegrityError) ('23000', "[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Cannot insert the value NULL into column 'first_name', table 'F1_DB.dbo.session_drivers'; column does not allow nulls. INSERT fails. (515) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+[SQL: INSERT INTO session_drivers (session_id, driver_code, team, driver_number, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ? ... 153 characters truncated ... , (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?)]
+[parameters: (24, 'VER', 'Red Bull Racing', 0, None, None, 24, 'GAS', 'Alpine', 0, None, None, 24, 'PER', 'Red Bull Racing', 0, None, None, 24, 'ALO', 'Aston Martin', 0, None, None, 24, 'LEC', 'Ferrari', 0, None, None, 24, 'STR', 'Aston Martin', 0, None, None, 24, 'MAG', 'Haas F1 Team', 0, None, None, 24, 'TSU', 'RB', 0, None, None, 24, 'ALB' ... 20 parameters truncated ... None, None, 24, 'OCO', 'Alpine', 0, None, None, 24, 'NOR', 'McLaren', 0, None, None, 24, 'COL', 'Williams', 0, None, None, 24, 'HAM', 'Mercedes', 0, None, None, 24, 'SAI', 'Ferrari', 0, None, None, 24, 'RUS', 'Mercedes', 0, None, None, 24, 'BOT', 'Kick Sauber', 0, None, None, 24, 'PIA', 'McLaren', 0, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+11:03:35 | INFO    |   weather (154 registos)
+11:03:35 | INFO    |   session_drivers (20 registos)
+11:03:35 | INFO    |   session_corners (16 registos)
+11:03:35 | INFO    |   race_control_msgs (107 registos)
+11:04:33 | INFO    |   weather (178 registos)
+11:04:33 | INFO    |   session_drivers (20 registos)
+11:04:33 | INFO    |   session_corners (14 registos)
+11:04:33 | INFO    |   race_control_msgs (113 registos)
+11:04:37 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Australian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 1449 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (26, 'ALO', 137.178, 1, 'INTERMEDIATE', 1, None, 22.171, 67.034, 10, 1, 1, '124', None, None, 0, 26, 'ALO', 169.408, 2, 'INTERMEDIATE', 1, 55.076, 34.64, 79.692, 10, 2, 1, '4', None, 4554.83, 0, 26, 'ALO', 163.345, 3, 'INTERMEDIATE', 2, 52.882, 33.441, 77.022, 10, 3, 0, '4', 4570.4, 4717.191, 0, 26, 'ALO' ... 428 parameters truncated ... None, 1, 26, 'ALO', 88.85, 31, 'INTERMEDIATE', 4, 31.446, 18.83, 38.574, 10, 31, 0, '1', None, None, 1, 26, 'ALO', 88.819, 32, 'INTERMEDIATE', 4, 31.156, 19.014, 38.649, 10, 32, 0, '1', None, None, 1, 26, 'ALO', None, 33, 'INTERMEDIATE', 4, None, None, None, 'None', 33, 0, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:04:37 | INFO    |   weather (161 registos)
+11:04:37 | INFO    |   session_drivers (20 registos)
+11:04:37 | INFO    |   session_corners (10 registos)
+11:04:37 | INFO    |   race_control_msgs (117 registos)
+11:04:41 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Austrian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (27, 'ANT', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:04:41 | INFO    |   weather (156 registos)
+11:04:41 | INFO    |   session_drivers (20 registos)
+11:04:41 | INFO    |   session_corners (20 registos)
+11:04:41 | INFO    |   race_control_msgs (71 registos)
+11:05:23 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Azerbaijan Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (28, 'PIA', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:05:23 | INFO    |   weather (158 registos)
+11:05:23 | INFO    |   session_drivers (20 registos)
+11:05:23 | INFO    |   session_corners (15 registos)
+11:05:24 | INFO    |   race_control_msgs (91 registos)
+11:06:29 | INFO    |   weather (223 registos)
+11:06:29 | INFO    |   session_drivers (20 registos)
+11:06:29 | INFO    |   session_corners (19 registos)
+11:06:29 | INFO    |   race_control_msgs (116 registos)
+11:06:31 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Belgian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 1999 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 'ALO', 218.679, 1, 'INTERMEDIATE', 1, None, 61.18, 36.143, 20, 1, 1, '14', 8157.928, None, 0, 30, 'ALO', 170.821, 2, 'INTERMEDIATE', 1, 48.266, 69.973, 52.582, 20, 2, 1, '4', None, None, 0, 30, 'ALO', 171.585, 3, 'INTERMEDIATE', 1, 44.671, 76.734, 50.18, 20, 3, 1, '4', None, None, 0, 30, 'ALO' ... 604 parameters truncated ... None, 1, 30, 'ALO', 107.268, 42, 'None', 3, 30.835, 47.477, 28.956, 17, 'None', 0, '1', None, None, 1, 30, 'ALO', 106.733, 43, 'None', 3, 30.83, 47.135, 28.768, 17, 'None', 0, '1', None, None, 1, 30, 'ALO', 107.306, 44, 'None', 3, 31.011, 46.969, 29.326, 17, 'None', 0, '1', None, None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:06:31 | INFO    |   weather (155 registos)
+11:06:31 | INFO    |   session_drivers (20 registos)
+11:06:31 | INFO    |   session_corners (18 registos)
+11:06:32 | INFO    |   race_control_msgs (158 registos)
+11:06:43 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\British Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (31, 'BOR', 135.202, 1, 'MEDIUM', 1, None, 46.265, 38.544, 17, 1, 1, '126', 3385.786, None, 0, 31, 'BOR', 137.78, 2, 'MEDIUM', 1, 47.212, 52.669, 37.899, 17, 2, 1, '6', None, None, 0, 31, 'BOR', 136.121, 3, 'MEDIUM', 1, 45.225, 51.62, 39.276, 17, 3, 1, '671', None, None, 0, 31, 'BOR', None, 4, 'MEDIUM', 1, None, None, None, 'None', 4, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:06:44 | INFO    |   weather (167 registos)
+11:06:44 | INFO    |   session_drivers (20 registos)
+11:06:44 | INFO    |   session_corners (14 registos)
+11:06:44 | INFO    |   race_control_msgs (97 registos)
+11:06:44 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Canadian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2149 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 'ALB', 89.443, 1, 'MEDIUM', 1, None, 26.72, 32.806, 12, 5, 0, '1', None, None, 0, 32, 'ALB', 78.73, 2, 'MEDIUM', 1, 22.801, 24.854, 31.075, 12, 6, 0, '1', None, None, 1, 32, 'ALB', 78.131, 3, 'MEDIUM', 1, 22.373, 24.779, 30.979, 12, 7, 0, '1', None, None, 1, 32, 'ALB' ... 652 parameters truncated ... None, 1, 32, 'ALB', 77.075, 45, 'HARD', 2, 21.655, 24.216, 31.204, 18, 22, 1, '1', None, None, 1, 32, 'ALB', 82.178, 46, 'HARD', 2, 23.506, 25.393, 33.279, 19, 23, 1, '1', None, None, 1, 32, 'ALB', None, 47, 'HARD', 2, None, None, None, 'None', 24, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:06:44 | INFO    |   weather (154 registos)
+11:06:44 | INFO    |   session_drivers (20 registos)
+11:06:44 | INFO    |   session_corners (16 registos)
+11:06:44 | INFO    |   race_control_msgs (56 registos)
+11:07:44 | INFO    |   weather (159 registos)
+11:07:44 | INFO    |   session_drivers (20 registos)
+11:07:44 | INFO    |   session_corners (14 registos)
+11:07:44 | INFO    |   race_control_msgs (108 registos)
+11:08:12 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Dutch Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 949 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (34, 'HAM', 83.037, 1, 'MEDIUM', 1, None, 27.712, 23.269, 7, 1, 1, '1', None, None, 0, 34, 'HAM', 76.716, 2, 'MEDIUM', 1, 26.405, 27.548, 22.763, 7, 2, 1, '1', None, None, 1, 34, 'HAM', 76.449, 3, 'MEDIUM', 1, 26.112, 27.692, 22.645, 7, 3, 1, '1', None, None, 1, 34, 'HAM' ... 268 parameters truncated ... None, 1, 34, 'HAM', 76.468, 21, 'MEDIUM', 1, 25.767, 27.811, 22.89, 7, 21, 1, '1', None, None, 1, 34, 'HAM', 76.926, 22, 'MEDIUM', 1, 25.959, 27.903, 23.064, 7, 22, 1, '1', None, None, 1, 34, 'HAM', None, 23, 'MEDIUM', 1, None, None, None, 'None', 23, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:08:12 | INFO    |   weather (150 registos)
+11:08:12 | INFO    |   session_drivers (20 registos)
+11:08:12 | INFO    |   session_corners (19 registos)
+11:08:12 | INFO    |   race_control_msgs (44 registos)
+11:08:18 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Emilia Romagna Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2049 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (35, 'ANT', 89.534, 1, 'HARD', 1, None, 29.599, 27.795, 12, 1, 1, '1', None, None, 0, 35, 'ANT', 83.293, 2, 'HARD', 1, 26.647, 29.038, 27.608, 12, 2, 1, '1', None, None, 1, 35, 'ANT', 81.788, 3, 'HARD', 1, 25.669, 28.671, 27.448, 11, 3, 1, '1', None, None, 1, 35, 'ANT' ... 620 parameters truncated ... None, 1, 35, 'ANT', 80.621, 43, 'MEDIUM', 2, 25.584, 28.204, 26.833, 8, 14, 1, '1', None, None, 1, 35, 'ANT', 80.834, 44, 'MEDIUM', 2, 25.46, 28.418, 26.956, 8, 15, 1, '1', None, None, 1, 35, 'ANT', None, 45, 'MEDIUM', 2, None, None, None, 'None', 16, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:08:18 | INFO    |   weather (157 registos)
+11:08:18 | INFO    |   session_drivers (20 registos)
+11:08:18 | INFO    |   session_corners (16 registos)
+11:08:18 | INFO    |   race_control_msgs (96 registos)
+11:09:23 | INFO    |   weather (144 registos)
+11:09:23 | INFO    |   session_drivers (20 registos)
+11:09:23 | INFO    |   session_corners (11 registos)
+11:09:23 | INFO    |   race_control_msgs (71 registos)
+11:09:50 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Italian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (37, 'HUL', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '1', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:09:50 | INFO    |   weather (140 registos)
+11:09:50 | INFO    |   session_drivers (20 registos)
+11:09:50 | INFO    |   session_corners (18 registos)
+11:09:50 | INFO    |   race_control_msgs (23 registos)
+11:10:55 | INFO    |   weather (141 registos)
+11:10:55 | INFO    |   session_drivers (20 registos)
+11:10:55 | INFO    |   session_corners (17 registos)
+11:10:55 | INFO    |   race_control_msgs (61 registos)
+11:11:47 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Las Vegas Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (39, 'STR', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:11:47 | INFO    |   weather (162 registos)
+11:11:47 | INFO    |   session_drivers (20 registos)
+11:11:47 | INFO    |   session_corners (17 registos)
+11:11:47 | INFO    |   race_control_msgs (78 registos)
+11:12:38 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Mexico City Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 3199 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (40, 'SAI', 92.118, 1, 'MEDIUM', 1, None, 35.753, 22.332, 12, 1, 1, '1', None, None, 0, 40, 'SAI', 84.285, 2, 'MEDIUM', 1, 29.994, 32.75, 21.541, 12, 2, 1, '1', None, None, 1, 40, 'SAI', 83.406, 3, 'MEDIUM', 1, 29.017, 32.842, 21.547, 12, 3, 1, '12', None, None, 1, 40, 'SAI' ... 988 parameters truncated ... None, 1, 40, 'SAI', 82.169, 66, 'SOFT', 4, 28.508, 32.465, 21.196, 15, 23, 0, '1', None, None, 1, 40, 'SAI', 81.64, 67, 'SOFT', 4, 28.32, 32.224, 21.096, 15, 24, 0, '1', None, None, 1, 40, 'SAI', None, 68, 'SOFT', 4, None, None, None, 'None', 25, 0, '126', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:12:38 | INFO    |   weather (149 registos)
+11:12:38 | INFO    |   session_drivers (20 registos)
+11:12:38 | INFO    |   session_corners (19 registos)
+11:12:38 | INFO    |   race_control_msgs (77 registos)
+11:12:38 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Miami Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2649 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (41, 'ALB', 98.782, 1, 'None', 'None', None, 35.605, 26.293, 5, 'None', 1, '12', None, None, 0, 41, 'ALB', 113.64, 2, 'None', 'None', 32.216, 48.993, 32.431, 5, 'None', 1, '126', None, None, 0, 41, 'ALB', 123.54, 3, 'None', 'None', 43.407, 49.929, 30.204, 5, 'None', 1, '671', None, None, 0, 41, 'ALB' ... 812 parameters truncated ... None, 1, 41, 'ALB', 90.482, 55, 'HARD', 2, 30.251, 34.618, 25.613, 5, 23, 1, '1', None, None, 1, 41, 'ALB', 90.675, 56, 'HARD', 2, 30.296, 34.711, 25.668, 5, 24, 1, '1', None, None, 1, 41, 'ALB', 90.577, 57, 'HARD', 2, 30.351, 34.636, 25.59, 5, 25, 1, '1', None, None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:12:38 | INFO    |   weather (160 registos)
+11:12:38 | INFO    |   session_drivers (20 registos)
+11:12:38 | INFO    |   session_corners (19 registos)
+11:12:38 | INFO    |   race_control_msgs (196 registos)
+11:12:42 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Monaco Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 1649 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (42, 'ALO', 88.332, 1, 'HARD', 1, None, 38.958, 21.505, 6, 2, 0, '12', None, None, 0, 42, 'ALO', 107.072, 2, 'HARD', 1, 36.339, 45.88, 24.853, 6, 3, 0, '16', None, None, 0, 42, 'ALO', 109.211, 3, 'HARD', 1, 32.549, 47.333, 29.329, 6, 4, 0, '6', None, None, 0, 42, 'ALO' ... 492 parameters truncated ... None, 1, 42, 'ALO', 76.024, 35, 'HARD', 2, 19.912, 35.979, 20.133, 6, 20, 0, '1', None, None, 1, 42, 'ALO', 76.2, 36, 'HARD', 2, 19.973, 36.032, 20.195, 6, 21, 0, '1', None, None, 1, 42, 'ALO', None, 37, 'HARD', 2, None, None, None, 'None', 22, 0, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:12:42 | INFO    |   weather (149 registos)
+11:12:42 | INFO    |   session_drivers (20 registos)
+11:12:42 | INFO    |   session_corners (16 registos)
+11:12:42 | INFO    |   race_control_msgs (79 registos)
+11:13:06 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Qatar Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (43, 'HUL', 94.468, 1, 'SOFT', 1, None, 31.008, 26.062, 11, 1, 1, '1', None, None, 0, 43, 'HUL', 88.911, 2, 'SOFT', 1, 32.447, 30.059, 26.405, 10, 2, 1, '1', None, None, 1, 43, 'HUL', 88.362, 3, 'SOFT', 1, 32.712, 29.914, 25.736, 10, 3, 1, '1', None, None, 1, 43, 'HUL' ... 12 parameters truncated ... None, 1, 43, 'HUL', 88.139, 5, 'SOFT', 1, 32.681, 30.01, 25.448, 10, 5, 1, '1', None, None, 1, 43, 'HUL', 88.206, 6, 'SOFT', 1, 32.554, 30.046, 25.606, 10, 6, 1, '1', None, None, 1, 43, 'HUL', None, 7, 'SOFT', 1, None, None, None, 'None', 7, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:13:06 | INFO    |   weather (142 registos)
+11:13:06 | INFO    |   session_drivers (20 registos)
+11:13:06 | INFO    |   session_corners (27 registos)
+11:13:06 | INFO    |   race_control_msgs (65 registos)
+11:13:22 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Saudi Arabian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (44, 'GAS', None, 1, 'MEDIUM', 1, None, None, None, 'None', 1, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:13:22 | INFO    |   weather (161 registos)
+11:13:22 | INFO    |   session_drivers (20 registos)
+11:13:22 | INFO    |   session_corners (19 registos)
+11:13:22 | INFO    |   race_control_msgs (119 registos)
+11:14:28 | INFO    |   weather (155 registos)
+11:14:28 | INFO    |   session_drivers (19 registos)
+11:14:28 | INFO    |   session_corners (14 registos)
+11:14:28 | INFO    |   race_control_msgs (100 registos)
+11:14:33 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\Spanish Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 2499 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (46, 'ANT', 87.381, 1, 'SOFT', 1, None, 34.011, 24.402, 7, 4, 0, '1', None, None, 0, 46, 'ANT', 82.112, 2, 'SOFT', 1, 24.554, 33.438, 24.12, 7, 5, 0, '1', None, None, 1, 46, 'ANT', 81.874, 3, 'SOFT', 1, 24.292, 33.119, 24.463, 7, 6, 0, '1', None, None, 1, 46, 'ANT' ... 764 parameters truncated ... None, 1, 46, 'ANT', 78.255, 52, 'SOFT', 3, 23.382, 31.542, 23.331, 7, 6, 0, '1', None, None, 1, 46, 'ANT', 79.04, 53, 'SOFT', 3, 23.441, 31.879, 23.72, 7, 7, 0, '1', None, None, 1, 46, 'ANT', None, 54, 'SOFT', 3, None, None, None, 'None', 8, 0, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:14:33 | INFO    |   weather (152 registos)
+11:14:33 | INFO    |   session_drivers (20 registos)
+11:14:33 | INFO    |   session_corners (15 registos)
+11:14:33 | INFO    |   race_control_msgs (56 registos)
+11:14:50 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\São Paulo Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (47, 'BOR', None, 1, 'SOFT', 1, None, None, None, 'None', 1, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:14:50 | INFO    |   weather (154 registos)
+11:14:50 | INFO    |   session_drivers (20 registos)
+11:14:50 | INFO    |   session_corners (20 registos)
+11:14:50 | INFO    |   race_control_msgs (79 registos)
+11:15:39 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2025\United States Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (48, 'SAI', 106.371, 1, 'MEDIUM', 1, None, 41.68, 34.39, 9, 1, 1, '12', None, None, 0, 48, 'SAI', 101.311, 2, 'MEDIUM', 1, 27.828, 39.965, 33.518, 8, 2, 1, '1', None, None, 1, 48, 'SAI', 100.327, 3, 'MEDIUM', 1, 26.892, 39.639, 33.796, 8, 3, 1, '1', None, None, 1, 48, 'SAI', 100.638, 4, 'MEDIUM', 1, 26.91, 39.886, 33.842, 8, 4, 1, '1', None, None, 1, 48, 'SAI', 100.793, 5, 'MEDIUM', 1, 27.015, 39.658, 34.12, 8, 5, 1, '1', None, None, 1, 48, 'SAI', None, 6, 'MEDIUM', 1, None, None, None, 'None', 6, 1, '126', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:15:39 | INFO    |   weather (148 registos)
+11:15:39 | INFO    |   session_drivers (21 registos)
+11:15:39 | INFO    |   session_corners (14 registos)
+11:15:39 | INFO    |   race_control_msgs (167 registos)
+11:15:52 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Australian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 599 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (49, 'BOT', 100.85, 1, 'HARD', 1, None, 19.068, 39.739, 15, 1, 1, '1', None, None, 0, 49, 'BOT', 90.152, 2, 'HARD', 1, 31.409, 18.42, 40.323, 18, 2, 1, '1', None, None, 1, 49, 'BOT', 89.219, 3, 'HARD', 1, 31.489, 18.72, 39.01, 19, 3, 1, '1', None, None, 1, 49, 'BOT' ... 156 parameters truncated ... None, 0, 49, 'BOT', 91.389, 14, 'HARD', 2, 33.091, 18.948, 39.35, 18, 14, 0, '1', None, None, 1, 49, 'BOT', 91.33, 15, 'HARD', 2, 34.194, 18.205, 38.931, 18, 15, 0, '1', None, None, 1, 49, 'BOT', None, 16, 'HARD', 2, None, None, None, 'None', 16, 0, '126', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:15:52 | INFO    |   weather (160 registos)
+11:15:52 | INFO    |   session_drivers (22 registos)
+11:15:52 | INFO    |   session_corners (14 registos)
+11:15:52 | INFO    |   race_control_msgs (286 registos)
+11:15:52 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Canadian Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 399 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (50, 'ALB', 99.163, 1, 'SOFT', 1, None, 29.38, 33.908, 19, 1, 1, '1', None, None, 0, 50, 'ALB', 85.514, 2, 'SOFT', 1, 25.435, 27.841, 32.238, 14, 2, 1, '1', None, None, 1, 50, 'ALB', 82.804, 3, 'SOFT', 1, 24.572, 26.098, 32.134, 13, 3, 1, '1', None, None, 1, 50, 'ALB' ... 92 parameters truncated ... None, 1, 50, 'ALB', 77.496, 10, 'SOFT', 1, 22.145, 24.682, 30.669, 12, 10, 1, '1', None, None, 1, 50, 'ALB', 77.221, 11, 'SOFT', 1, 21.979, 24.649, 30.593, 12, 11, 1, '1', None, None, 1, 50, 'ALB', None, 12, 'SOFT', 1, None, None, None, 'None', 12, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:15:52 | INFO    |   weather (152 registos)
+11:15:52 | INFO    |   session_drivers (22 registos)
+11:15:52 | INFO    |   session_corners (16 registos)
+11:15:52 | INFO    |   race_control_msgs (86 registos)
+11:15:53 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Chinese Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (51, 'ALB', None, 1, 'HARD', 1, None, None, None, 'None', 1, 1, '12', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:15:53 | INFO    |   weather (156 registos)
+11:15:53 | INFO    |   session_drivers (22 registos)
+11:15:53 | INFO    |   session_corners (18 registos)
+11:15:53 | INFO    |   race_control_msgs (47 registos)
+11:16:01 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Japanese Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), ... 849 characters truncated ... , (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (52, 'BEA', 104.406, 1, 'MEDIUM', 1, None, 44.063, 18.181, 16, 1, 1, '1', None, None, 0, 52, 'BEA', 96.402, 2, 'MEDIUM', 1, 35.357, 42.813, 18.232, 15, 2, 1, '1', None, None, 1, 52, 'BEA', 97.62, 3, 'MEDIUM', 1, 35.971, 43.452, 18.197, 14, 3, 1, '1', None, None, 1, 52, 'BEA' ... 236 parameters truncated ... None, 1, 52, 'BEA', 95.905, 19, 'HARD', 2, 35.345, 42.252, 18.308, 18, 3, 1, '1', None, None, 1, 52, 'BEA', 95.604, 20, 'HARD', 2, 35.253, 42.31, 18.041, 18, 4, 1, '1', None, None, 1, 52, 'BEA', None, 21, 'HARD', 2, None, None, None, 'None', 5, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:16:01 | INFO    |   weather (168 registos)
+11:16:01 | INFO    |   session_drivers (22 registos)
+11:16:01 | INFO    |   session_corners (19 registos)
+11:16:01 | INFO    |   race_control_msgs (176 registos)
+11:16:23 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Miami Grand Prix\Race: (pyodbc.DataError) ('22018', "[22018] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting the varchar value 'None' to data type int. (245) (SQLExecDirectW)")
+[SQL: INSERT INTO driver_laptimes (session_id, driver_code, time_s, lap, compound, stint, s1, s2, s3, position, life, fresh, status, pout, pin, iacc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (53, 'GAS', 105.243, 1, 'MEDIUM', 1, None, 37.363, 26.123, 12, 1, 1, '1', None, None, 0, 53, 'GAS', 95.576, 2, 'MEDIUM', 1, 34.166, 35.189, 26.221, 11, 2, 1, '1', None, None, 1, 53, 'GAS', 95.046, 3, 'MEDIUM', 1, 33.854, 35.291, 25.901, 11, 3, 1, '1', None, None, 1, 53, 'GAS', 94.856, 4, 'MEDIUM', 1, 33.93, 35.021, 25.905, 11, 4, 1, '1', None, None, 1, 53, 'GAS', None, 5, 'MEDIUM', 1, None, None, None, 'None', 5, 1, '124', None, None, 0)]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+11:16:23 | INFO    |   weather (208 registos)
+11:16:23 | INFO    |   session_drivers (22 registos)
+11:16:23 | INFO    |   session_corners (19 registos)
+11:16:23 | INFO    |   race_control_msgs (265 registos)
+11:16:25 | ERROR   | Erro em C:\dev\Projects\f1_dw\project\_data\2026\Monaco Grand Prix\Race: (pyodbc.ProgrammingError) ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to numeric. (8114) (SQLExecDirectW)')
+[SQL: INSERT INTO telemetry (session_id, driver_code, lap, time_s, speed, rpm, gear, throttle, brake, drs, distance, x, y, z) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ... 6331 characters truncated ...  ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (54, 'ALB', 10, -0.098, 261.0, 11591.0, 6, 100.0, 0, 0, -7.104999999999999, 'None', 'None', 'None', 54, 'ALB', 10, 0.062, 263.0, 11692.0, 6, 100.0, 0, 0, 4.583888888888891, 'None', 'None', 'None', 54, 'ALB', 10, 0.222, 263.0, 11757.0, 6, 100.0, 0, 0, 16.272777777777783, 'None', 'None', 'None', 54, 'ALB', 10, 0.502, 265.0, 11818.0, 6, 100.0 ... 1986 parameters truncated ... 3, 100.0, 0, 0, 1470.318055555555, 'None', 'None', 'None', 54, 'ALB', 10, 38.982, 191.0, 11313.0, 4, 100.0, 0, 0, 1491.5402777777772, 'None', 'None', 'None', 54, 'ALB', 10, 39.382, 202.0, 10496.0, 5, 100.0, 0, 0, 1513.9847222222215, 'None', 'None', 'None', 54, 'ALB', 10, 39.702, 212.0, 10980.0, 5, 100.0, 0, 0, 1532.829166666666, 'None', 'None', 'None')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+11:16:25 | INFO    | ============================================================
+11:16:25 | INFO    | Ingestao concluida com sucesso!
+11:16:25 | INFO    | ============================================================

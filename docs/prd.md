@@ -375,7 +375,7 @@ Requisitos Mínimos do Modelo Dimensional
 
 
 * 
-**Medidas (Mínimo de 2):** Pontos Acumulados, Tempo Total em Pit Stops, Posições Ganhas.
+**Medidas (Mínimo de 2):** Pontos Conquistados, Tempo Total em Pit Stops, Posições Ganhas, Tempo de Volta.
 
 
 * **Dimensões (Mínimo de 4):**
@@ -389,45 +389,51 @@ Requisitos Mínimos do Modelo Dimensional
 
 
 4. **Dimensão Construtor:** Atributos (Nome, País, Motorizador).
+5. **Dimensão Composto:** Atributos (Composto, Tipo_Piso).
 
-**Diagrama do Modelo em Estrela (Star Schema):**
+**Diagrama do Modelo em Estrela (Star Schema — Constelação de Factos):**
 
 ```
-                        ┌──────────────────────┐
-                        │     Dim_Tempo         │
-                        │──────────────────────│
-                        │ Data_SK (PK)          │
-                        │ Ano                   │
-                        │ Mes                   │
-                        │ Dia                   │
-                        └──────────┬───────────┘
-                                   │
-                        ┌──────────┴───────────┐
-                        │   Fact_Performance    │
-                        │──────────────────────│
-                        │ Data_SK (FK)          │
-                        │ Piloto_SK (FK)        │
-                        │ Circuito_SK (FK)      │
-                        │ Construtor_SK (FK)    │
-                        │──────────────────────│
-                        │ Pontos_Conquistados   │
-                        │ Tempo_Total_Pit_Stops   │
-                        │ Posicoes_Ganhas       │
-                        │ Posicao_Partida       │
-                        │ Posicao_Final         │
-                        └──┬───────┬───────┬───┘
-                           │       │       │
-              ┌────────────┘       │       └────────────┐
-              │                    │                    │
-   ┌──────────┴───────────┐ ┌─────┴────────────┐ ┌─────┴────────────┐
-   │     Dim_Piloto        │ │   Dim_Circuito   │ │  Dim_Construtor  │
-   │──────────────────────│ │──────────────────│ │─────────────────│
-   │ Piloto_SK (PK)       │ │ Circuito_SK (PK) │ │ Construtor_SK(PK)│
-   │ Nome_Completo        │ │ Nome_Circuito    │ │ Nome             │
-   │ Nacionalidade        │ │ Cidade           │ │ Pais             │
-   │ Data_Nascimento      │ │ Pais             │ │ Motorizador      │
-   │ Equipa_Atual         │ │ Continente       │ └──────────────────┘
-   └──────────────────────┘ └──────────────────┘
+                         ┌──────────────────────┐
+                         │     Dim_Tempo         │
+                         │──────────────────────│
+                         │ Data_SK (PK)          │
+                         │ Ano, Trimestre        │
+                         │ Mes, Dia, Dia_Semana  │
+                         └──────────┬───────────┘
+                                    │
+              ┌─────────────────────┼─────────────────────┐
+              │                     │                     │
+   ┌──────────┴───────────┐   ┌────┴───────────┐   ┌─────┴──────────────┐
+   │   Fact_Performance    │   │  Fact_Volta    │   │   Dim_Composto     │
+   │──────────────────────│   │────────────────│   │────────────────────│
+   │ Data_SK (FK)          │   │ Data_SK (FK)   │   │ Composto_SK (PK)   │
+   │ Piloto_SK (FK)        │   │ Piloto_SK (FK) │   │ Composto            │
+   │ Circuito_SK (FK)      │   │ Circuito_SK(FK)│   │ Tipo_Piso          │
+   │ Construtor_SK (FK)    │   │ Construtor_SK  │   └────────────────────┘
+   │──────────────────────│   │ Composto_SK    │          │
+   │ Pontos_Conquistados  │   │────────────────│          │
+   │ Tempo_Total_Pit_Stops│   │ Tempo_Volta_ms │──────────┘
+   │ Num_Pit_Stops        │   │ Tempo_S1/S2/S3 │
+   │ Posicoes_Ganhas      │   │ Posicao_na_Volta│
+   │ Posicao_Partida      │   │ Volta_Sob_SC   │
+   │ Posicao_Final        │   │ Paragem_Box    │
+   │ Abandono_Mecanico    │   │ Stint (deg.)   │
+   └──┬───────┬───────┬───┘   └────────────────┘
+      │       │       │
+ ┌────┘       │       └──────┐
+ │            │               │
+ ┌──────────┴───────────┐ ┌──┴──────────────┐ ┌──────────┴───────────┐
+ │     Dim_Piloto        │ │   Dim_Circuito   │ │  Dim_Construtor     │
+ │──────────────────────│ │──────────────────│ │─────────────────────│
+ │ Piloto_SK (PK)       │ │ Circuito_SK (PK) │ │ Construtor_SK (PK)  │
+ │ Nome_Completo        │ │ Nome_Circuito    │ │ Nome                │
+ │ Nacionalidade        │ │ Cidade           │ │ Pais                │
+ │ Data_Nascimento      │ │ Pais             │ │ Motorizador         │
+ │ Equipa (SCD2)        │ │ Continente       │ └─────────────────────┘
+ │ Data_Inicio          │ │ Altitude         │
+ │ Data_Fim             │ └──────────────────┘
+ └──────────────────────┘
 ```
 
 ### 4.2. 
@@ -444,7 +450,7 @@ Matriz de Mapeamento (Origem -> Destino)
 | `drivers.forename` + `surname` | `forename`, `surname` | VARCHAR(50) | `Dim_Piloto` | `Nome_Completo` | VARCHAR(101) | Concatenação: forename + ' ' + surname |
 | `drivers.nationality` | `nationality` | VARCHAR(50) | `Dim_Piloto` | `Nacionalidade` | VARCHAR(50) | Mapeamento direto |
 | `drivers.dob` | `dob` | DATE | `Dim_Piloto` | `Data_Nascimento` | DATE | Mapeamento direto |
-| `results.constructorId` | `constructorId` | INTEGER | `Dim_Piloto` | `Equipa_Atual` | VARCHAR(50) | JOIN com `constructors.name`; SCD Tipo 2 se mudar de equipa |
+| `results.constructorId` | `constructorId` | INTEGER | `Dim_Piloto` | `Equipa` | VARCHAR(50) | JOIN com `constructors.name`; SCD Tipo 2 com Data_Inicio/Data_Fim |
 | `circuits.name` | `name` | VARCHAR(100) | `Dim_Circuito` | `Nome_Circuito` | VARCHAR(100) | Mapeamento direto |
 | `circuits.location` | `location` | VARCHAR(100) | `Dim_Circuito` | `Cidade` | VARCHAR(100) | Mapeamento direto |
 | `circuits.country` | `country` | VARCHAR(50) | `Dim_Circuito` | `Pais` | VARCHAR(50) | Mapeamento direto |
@@ -454,9 +460,22 @@ Matriz de Mapeamento (Origem -> Destino)
 | `constructors.name` | `name` | VARCHAR(50) | `Dim_Construtor` | `Motorizador` | VARCHAR(50) | Enriquecimento via lookup (ex: Mercedes-AMG → Mercedes) |
 | `results.points` | `points` | DECIMAL(8,2) | `Fact_Performance` | `Pontos_Conquistados` | DECIMAL(8,2) | Mapeamento direto |
 | `pit_stops.duration` | `duration` | DECIMAL(8,3) | `Fact_Performance` | `Tempo_Total_Pit_Stops` | DECIMAL(8,3) | Soma da duração de todas as paragens do piloto na corrida |
+| `pit_stops.stop` | `stop` | INTEGER | `Fact_Performance` | `Num_Pit_Stops` | INTEGER | COUNT distinto de paragens por (raceId, driverId) |
 | `results.position` | `position` | INTEGER | `Fact_Performance` | `Posicao_Final` | INTEGER | Mapeamento direto; NULL = "Não classificado" |
 | `results.grid` | `grid` | INTEGER | `Fact_Performance` | `Posicao_Partida` | INTEGER | Mapeamento direto |
 | `results.position` / `grid` | `position`, `grid` | INTEGER | `Fact_Performance` | `Posicoes_Ganhas` | INTEGER | Cálculo: `grid` - `position` (se position IS NULL então 0) |
+| `results.statusId` → `status.status` | `statusId`, `status` | INTEGER, VARCHAR | `Fact_Performance` | `Abandono_Mecanico` | INTEGER (flag) | 1 se status ∈ falha mecânica (Engine, Gearbox, etc.); 0 caso contrário |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Fact_Volta** | | | | | |
+| `lap_times.milliseconds` | `milliseconds` | INTEGER | `Fact_Volta` | `Tempo_Volta_ms` | INTEGER | Mapeamento direto (1996+) |
+| `lap_times.position` | `position` | INTEGER | `Fact_Volta` | `Posicao_na_Volta` | INTEGER | Posição no final da volta |
+| telemetria `laptimes.s1/s2/s3` | `s1`, `s2`, `s3` | DECIMAL | `Fact_Volta` | `Tempo_S1/S2/S3` | DECIMAL | Matching por código piloto e n.º da volta (2024+); NULL antes |
+| telemetria `laptimes.compound` | `compound` | VARCHAR | `Dim_Composto` | `Composto` | VARCHAR | Lookup: SOFT, MEDIUM, HARD, INTERMEDIATE, WET + "Desconhecido" |
+| telemetria `laptimes.compound` | `compound` | VARCHAR | `Dim_Composto` | `Tipo_Piso` | VARCHAR | "Seco" se SOFT/MEDIUM/HARD; "Chuva" se INTERMEDIATE/WET |
+| telemetria `laptimes.compound` | `compound` | VARCHAR | `Fact_Volta` | `Composto_SK` | INTEGER (FK) | Lookup para Dim_Composto; "Desconhecido" antes de 2024 |
+| telemetria `laptimes.stint` | `stint` | INTEGER | `Fact_Volta` | `Stint` | INTEGER | Dimensão degenerada; n.º do stint na corrida |
+| `safety_cars.Deployed`–`Retreated` + VSC | `Deployed`, `Retreated` | INTEGER | `Fact_Volta` | `Volta_Sob_SC` | INTEGER (flag) | 1 se volta ∈ [Deployed, Retreated] ∪ VSC; matching textual GP |
+| `pit_stops.lap` | `lap` | INTEGER | `Fact_Volta` | `Paragem_Box` | INTEGER (flag) | 1 se existe pit_stop nessa (raceId, driverId, lap) |
 
 ---
 
@@ -477,7 +496,7 @@ Matriz de Mapeamento (Origem -> Destino)
 
 * **Transformações Críticas:**
 * Tratamento de valores nulos ou strings de texto indicando abandonos (ex: "R", "DNF") para codificação numérica padronizada na tabela de factos.
-* **Gestão de SCD (Slowly Changing Dimensions):** A dimensão `Dim_Piloto` aplica SCD Tipo 2 no atributo `Equipa_Atual` para preservar o histórico de mudanças de equipa dos pilotos ao longo das épocas. As restantes dimensões seguem SCD Tipo 0 (atributos estáticos) ou SCD Tipo 1 (sobrescrita), conforme a natureza dos atributos.
+* **Gestão de SCD (Slowly Changing Dimensions):** A dimensão `Dim_Piloto` aplica SCD Tipo 2 no atributo `Equipa` para preservar o histórico de mudanças de equipa dos pilotos ao longo das épocas, com `Data_Inicio` e `Data_Fim` a delimitar a vigência. As restantes dimensões seguem SCD Tipo 0 (atributos estáticos) ou SCD Tipo 1 (sobrescrita), conforme a natureza dos atributos.
 
 
 * Cálculo derivado de métricas: `Posicao_Final` $-$ `Posicao_Partida` = `Posicoes_Ganhas`.

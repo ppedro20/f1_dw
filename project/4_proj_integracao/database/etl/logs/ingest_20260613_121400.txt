@@ -1,0 +1,48 @@
+12:14:00 | INFO    | ============================================================
+12:14:00 | INFO    | F1_DB Ingestion Script
+12:14:00 | INFO    | Data path: C:\dev\Projects\f1_dw\project\_data
+12:14:00 | INFO    | ============================================================
+12:14:00 | INFO    | Conexao a base de dados OK
+12:14:00 | INFO    | === INGESTAO CSV ===
+12:14:00 | INFO    |   seasons.csv -> seasons (77 linhas)
+12:14:00 | INFO    |   circuits.csv -> circuits (78 linhas)
+12:14:00 | INFO    |   constructors.csv -> constructors (214 linhas)
+12:14:01 | INFO    |   drivers.csv -> drivers (865 linhas)
+12:14:01 | INFO    |   status.csv -> status (140 linhas)
+12:14:01 | INFO    |   races.csv -> races (1171 linhas)
+12:14:20 | INFO    |   results.csv -> results (27370 linhas)
+12:14:20 | INFO    |   sprint_results.csv -> sprint_results (546 linhas)
+12:14:21 | INFO    |   Duplicados removidos: 1979
+12:14:39 | INFO    |   lap_times.csv -> lap_times (870542 linhas)
+12:14:50 | INFO    |   pit_stops.csv -> pit_stops (22335 linhas)
+12:14:52 | INFO    |   qualifying.csv -> qualifying (11102 linhas)
+12:14:54 | INFO    |   constructor_results.csv -> constructor_results (12931 linhas)
+12:14:55 | INFO    |   constructor_standings.csv -> constructor_standings (13697 linhas)
+12:14:56 | INFO    |   driver_standings.csv -> driver_standings (35493 linhas)
+12:14:56 | INFO    |   safety_cars.csv -> safety_cars (370 linhas)
+12:14:56 | INFO    |   red_flags.csv -> red_flags (99 linhas)
+12:14:56 | INFO    |   fatal_accidents_drivers.csv -> fatal_accidents_drivers (51 linhas)
+12:14:56 | INFO    |   fatal_accidents_marshalls.csv -> fatal_accidents_marshalls (5 linhas)
+12:14:57 | INFO    |   virtual_safety_car -> 244 linhas
+12:14:57 | INFO    | === INGESTAO JSON (pasta a pasta) ===
+12:14:57 | INFO    | Encontradas 54 sessoes Race
+12:14:57 | INFO    |   weather (148 registos)
+12:14:57 | INFO    |   session_drivers (20 registos)
+12:14:57 | INFO    |   session_corners (16 registos)
+12:14:57 | INFO    |   race_control_msgs (130 registos)
+12:15:57 | INFO    |   weather (144 registos)
+12:15:57 | INFO    |   session_drivers (19 registos)
+12:15:57 | INFO    |   session_corners (14 registos)
+12:15:57 | INFO    |   race_control_msgs (82 registos)
+12:16:57 | INFO    |   weather (143 registos)
+12:16:57 | INFO    |   session_drivers (20 registos)
+12:16:57 | INFO    |   session_corners (10 registos)
+12:16:57 | INFO    |   race_control_msgs (124 registos)
+12:18:12 | INFO    |   weather (152 registos)
+12:18:12 | INFO    |   session_drivers (20 registos)
+12:18:12 | INFO    |   session_corners (20 registos)
+12:18:12 | INFO    |   race_control_msgs (115 registos)
+12:19:28 | INFO    |   weather (157 registos)
+12:19:28 | INFO    |   session_drivers (20 registos)
+12:19:28 | INFO    |   session_corners (15 registos)
+12:19:28 | INFO    |   race_control_msgs (69 registos)

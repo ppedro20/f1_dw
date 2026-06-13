@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2026"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP"
+  DTS:CreatorName="LAPTOP\h"
+  DTS:DTSID="{757C0A59-D750-4883-A324-B5945A5FE30B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="2070"
+  DTS:ObjectName="F1_ETL_Main"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{16D68340-9016-4ABF-9041-620A7E4A98BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FD2FC40-2D9B-4AAD-99B8-29676EC9D7E4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LAST_INCIDENTE_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E39FBC4B-B56D-41FE-850C-87CFA64F5D32}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LAST_PITSTOP_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D8DA6573-FB30-41B6-896C-A1019DFA9F5E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LAST_RESULTADO_ID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_circuito"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{472F7ADD-431E-4266-9F61-41C1A106E0AF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_circuito">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_construtor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{FCD7215B-2D0B-4AE3-BCDC-7F430822A503}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_construtor">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_corrida"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{937629D8-55F3-451A-8605-5DF59D5950A0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_corrida">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{14F7B3A0-BC75-4B31-84E3-6192A7166FBB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_data">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_estado"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{B619575E-5938-472A-A171-BE729178417B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_estado">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_dim_piloto"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{813F4B19-640F-4B88-981B-56D07E789F43}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_piloto">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_fact_incidente_seguranca"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{5DC770A6-443D-4688-B9EF-28D2BC00B36B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_incidente_seguranca">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_fact_pit_stop"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{C46D57FD-6280-44C0-9A47-4F4CB47B72BB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_pit_stop">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_fact_resultado_corrida"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{7AF02A76-06F9-45C9-8866-AFBB3FE4C897}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_resultado_corrida">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET_LAST_INCIDENTE_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{BC1BCD4D-DE17-46E9-AA1E-504F7D9F583A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET_LAST_INCIDENTE_ID"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B69010D-6F02-43A1-9A7B-D29A3D00E10B}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_incidente), 0) FROM dbo.fact_incidente_seguranca"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LAST_INCIDENTE_ID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET_LAST_PITSTOP_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{14F31F1C-3918-488E-A07A-91A3D42B0B4B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET_LAST_PITSTOP_ID"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B69010D-6F02-43A1-9A7B-D29A3D00E10B}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_pit_stop), 0) FROM dbo.fact_pit_stop"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LAST_PITSTOP_ID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET_LAST_RESULTADO_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{36FEBEEB-A27D-4C48-A12F-C366F7CD822C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET_LAST_RESULTADO_ID"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B69010D-6F02-43A1-9A7B-D29A3D00E10B}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_resultado), 0) FROM dbo.fact_resultado_corrida"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LAST_RESULTADO_ID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_1]"
+      DTS:CreationName=""
+      DTS:DTSID="{79DF0837-9D23-402F-886F-DF50C1474C39}"
+      DTS:From="Package\ETL_dim_data"
+      DTS:ObjectName="Constraint_1"
+      DTS:To="Package\ETL_dim_piloto" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_10]"
+      DTS:CreationName=""
+      DTS:DTSID="{3106DF58-0B5E-40E7-B3CD-12F67784C108}"
+      DTS:From="Package\ETL_fact_pit_stop"
+      DTS:ObjectName="Constraint_10"
+      DTS:To="Package\GET_LAST_INCIDENTE_ID" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_11]"
+      DTS:CreationName=""
+      DTS:DTSID="{8C7D7228-2670-42AC-9CC6-26D9B53D5050}"
+      DTS:From="Package\GET_LAST_INCIDENTE_ID"
+      DTS:ObjectName="Constraint_11"
+      DTS:To="Package\ETL_fact_incidente_seguranca" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1C392C0-6657-4898-BC59-FA72A39C35DE}"
+      DTS:From="Package\ETL_dim_piloto"
+      DTS:ObjectName="Constraint_2"
+      DTS:To="Package\ETL_dim_construtor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B20D2602-410E-4A58-BBEF-1B0C250D224D}"
+      DTS:From="Package\ETL_dim_construtor"
+      DTS:ObjectName="Constraint_3"
+      DTS:To="Package\ETL_dim_circuito" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D0002A61-8C8A-4B52-8F25-DDB1ADE093C4}"
+      DTS:From="Package\ETL_dim_circuito"
+      DTS:ObjectName="Constraint_4"
+      DTS:To="Package\ETL_dim_corrida" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_5]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB6245E7-440D-4FD6-9E69-92B096D133FA}"
+      DTS:From="Package\ETL_dim_corrida"
+      DTS:ObjectName="Constraint_5"
+      DTS:To="Package\ETL_dim_estado" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_6]"
+      DTS:CreationName=""
+      DTS:DTSID="{155EA3C8-CFE9-4A06-A4D8-ABCE75B9F218}"
+      DTS:From="Package\ETL_dim_estado"
+      DTS:ObjectName="Constraint_6"
+      DTS:To="Package\GET_LAST_RESULTADO_ID" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_7]"
+      DTS:CreationName=""
+      DTS:DTSID="{3A071113-5A57-45BA-A8D2-566E02BC2FE1}"
+      DTS:From="Package\GET_LAST_RESULTADO_ID"
+      DTS:ObjectName="Constraint_7"
+      DTS:To="Package\ETL_fact_resultado_corrida" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_8]"
+      DTS:CreationName=""
+      DTS:DTSID="{EE1A30EA-59DC-4D38-AD84-9C13A162CCED}"
+      DTS:From="Package\ETL_fact_resultado_corrida"
+      DTS:ObjectName="Constraint_8"
+      DTS:To="Package\GET_LAST_PITSTOP_ID" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint_9]"
+      DTS:CreationName=""
+      DTS:DTSID="{52F59463-B05C-4161-9864-2CC62A693A5E}"
+      DTS:From="Package\GET_LAST_PITSTOP_ID"
+      DTS:ObjectName="Constraint_9"
+      DTS:To="Package\ETL_fact_pit_stop" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\ETL_dim_circuito"
+          TopLeft="37.5,313.499999999999" />
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\ETL_dim_construtor"
+          TopLeft="30.8333333333334,210.833333333333" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\ETL_dim_corrida"
+          TopLeft="38.1666666666667,416.166666666666" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\ETL_dim_data"
+          TopLeft="44.1666666666667,5.49999999999993" />
+        <NodeLayout
+          Size="160,42.6666666666667"
+          Id="Package\ETL_dim_estado"
+          TopLeft="38.8333333333334,518.833333333332" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\ETL_dim_piloto"
+          TopLeft="42.1666666666667,108.166666666666" />
+        <NodeLayout
+          Size="226.666666666667,42.6666666666667"
+          Id="Package\ETL_fact_incidente_seguranca"
+          TopLeft="5.50000000000013,1134.83333333333" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\ETL_fact_pit_stop"
+          TopLeft="36.1666666666668,929.499999999999" />
+        <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\ETL_fact_resultado_corrida"
+          TopLeft="13.5000000000001,724.166666666666" />
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\GET_LAST_INCIDENTE_ID"
+          TopLeft="11.5000000000001,1032.16666666667" />
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\GET_LAST_PITSTOP_ID"
+          TopLeft="17.5000000000001,826.833333333332" />
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\GET_LAST_RESULTADO_ID"
+          TopLeft="8.16666666666673,621.499999999999" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_1]"
+          TopLeft="118.833333333333,48.1666666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_10]"
+          TopLeft="118.833333333333,972.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_11]"
+          TopLeft="118.833333333333,1074.83333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_2]"
+          TopLeft="118.833333333333,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_3]"
+          TopLeft="118.833333333333,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_4]"
+          TopLeft="118.833333333333,356.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_5]"
+          TopLeft="118.833333333333,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_6]"
+          TopLeft="118.833333333333,561.499999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_7]"
+          TopLeft="118.833333333333,664.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_8]"
+          TopLeft="118.833333333333,766.833333333332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint_9]"
+          TopLeft="118.833333333333,869.499999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionFormatVersion>12.00</SolutionFormatVersion>
+  <VisualStudioVersion>17.0</VisualStudioVersion>
+  <TargetServerVersion>SQLServer2022</TargetServerVersion>
+  <DatabaseCompatibilityLevel>160</DatabaseCompatibilityLevel>
+  <DeploymentModel>Project</DeploymentModel>
+  <DeploymentModelSpecificContent>
+    <ManifestTemplate>false</ManifestTemplate>
+  </DeploymentModelSpecificContent>
+  <Packages>
+    <Package>
+      <RelativePath>F1_ETL_Main.dtsx</RelativePath>
+    </Package>
+  </Packages>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <OutputPath>bin\Development</OutputPath>
+        <ConnectionMappings/>
+        <ParameterMappings/>
+        <ReferenceCount>0</ReferenceCount>
+        <UseRegressionDefaults>false</UseRegressionDefaults>
+      </Options>
+    </Configuration>
+  </Configurations>
+  <ConnectionManagers/>
+  <Parameters/>
+  <GUID>{3074EF6F-71D8-4785-A65F-6460AD6AC63D}</GUID>
+</Project>

@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2026 12:00:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:DTSID="{A953497E-54E6-4EEC-A4E7-16EF79DD0F33}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5161.0"
+  DTS:LocaleID="2070"
+  DTS:ObjectName="F1_ETL_Main"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{D95543A5-DD6E-42DF-8F15-37DD6E75D161}">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+
+  <DTS:ConnectionManagers/>
+
+  <DTS:Variables>
+    
+    <DTS:Variable DTS:DataType="3" DTS:DTSID="{9EEEE622-750D-4D37-8817-C72E1D955B7D}"
+      DTS:ObjectName="LAST_RESULTADO_ID" DTS:Namespace="User">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    
+    <DTS:Variable DTS:DataType="3" DTS:DTSID="{E9BFA0B4-12FF-4722-9CE7-F1B53457976A}"
+      DTS:ObjectName="LAST_PITSTOP_ID" DTS:Namespace="User">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    
+    <DTS:Variable DTS:DataType="3" DTS:DTSID="{AC6AE24F-1A9B-4724-B102-96D991F322CB}"
+      DTS:ObjectName="LAST_INCIDENTE_ID" DTS:Namespace="User">
+      <DTS:VariableValue DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+
+  <DTS:Executables>
+    
+    <DTS:Executable DTS:refId="Package\ETL_dim_data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{8E305BC4-7D4A-4187-999E-93A8FB6B37DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_data">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_dim_piloto"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{02F8E59C-66A9-47AC-A56B-580D65E78229}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_piloto">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_dim_construtor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{EF163046-EF78-48DE-8FB9-49C51A3B9BF7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_construtor">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_dim_circuito"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{1E2CC6AE-C619-43A6-904D-AC2642180DE7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_circuito">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_dim_corrida"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{464A2D82-20BC-489B-A4E3-011F17C2ADE0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_corrida">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_dim_estado"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{20F33D5D-3FC2-4F3A-AD73-E6C8353CAE4E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_dim_estado">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\GET_LAST_RESULTADO_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{2618BE6A-61D1-4BA2-A352-E111C512D2E6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:ObjectName="GET_LAST_RESULTADO_ID">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_resultado), 0) FROM dbo.fact_resultado_corrida"
+          SQLTask:ResultType="ResultSetType_SingleRow">
+          <SQLTask:ResultBinding SQLTask:ResultName="0" SQLTask:DtsVariableName="User::LAST_RESULTADO_ID"/>
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_fact_resultado_corrida"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{6596BCBF-0FD9-4E14-94DC-0C31F60B0843}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_resultado_corrida">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\GET_LAST_PITSTOP_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{EF1D6B07-6B53-4F66-9AAE-CDC4197F22CA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:ObjectName="GET_LAST_PITSTOP_ID">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_pit_stop), 0) FROM dbo.fact_pit_stop"
+          SQLTask:ResultType="ResultSetType_SingleRow">
+          <SQLTask:ResultBinding SQLTask:ResultName="0" SQLTask:DtsVariableName="User::LAST_PITSTOP_ID"/>
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_fact_pit_stop"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{BF8E7780-9E07-4974-B7A4-CCA47C965C6F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_pit_stop">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\GET_LAST_INCIDENTE_ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{0B3D7D6E-1A2F-438E-955D-DA7C95FDF8FE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:ObjectName="GET_LAST_INCIDENTE_ID">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(nk_incidente), 0) FROM dbo.fact_incidente_seguranca"
+          SQLTask:ResultType="ResultSetType_SingleRow">
+          <SQLTask:ResultBinding SQLTask:ResultName="0" SQLTask:DtsVariableName="User::LAST_INCIDENTE_ID"/>
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:refId="Package\ETL_fact_incidente_seguranca"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{E5C910EF-121B-423E-89FA-F8C836887664}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_fact_incidente_seguranca">
+      <DTS:Variables/>
+      <DTS:ObjectData>
+        <pipeline version="1"><components/><paths/><constraints/></pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+
+  <DTS:PrecedenceConstraints>
+    
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_1]"
+      DTS:CreationName=""
+      DTS:DTSID="{90AA6C0C-2713-4727-B29A-0FE8738F828B}"
+      DTS:From="Package\ETL_dim_data"
+      DTS:ObjectName="Constraint_1"
+      DTS:To="Package\ETL_dim_piloto"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1D9C96E1-C94D-4C01-ADC5-796137BB4EFA}"
+      DTS:From="Package\ETL_dim_piloto"
+      DTS:ObjectName="Constraint_2"
+      DTS:To="Package\ETL_dim_construtor"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_3]"
+      DTS:CreationName=""
+      DTS:DTSID="{45B3F805-EDF9-4ECE-B563-F387A4C3F22D}"
+      DTS:From="Package\ETL_dim_construtor"
+      DTS:ObjectName="Constraint_3"
+      DTS:To="Package\ETL_dim_circuito"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_4]"
+      DTS:CreationName=""
+      DTS:DTSID="{779C3E0F-8882-4331-A250-781D4BD571FC}"
+      DTS:From="Package\ETL_dim_circuito"
+      DTS:ObjectName="Constraint_4"
+      DTS:To="Package\ETL_dim_corrida"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_5]"
+      DTS:CreationName=""
+      DTS:DTSID="{2318768F-2DE6-4C9A-835E-64D8FE8085BC}"
+      DTS:From="Package\ETL_dim_corrida"
+      DTS:ObjectName="Constraint_5"
+      DTS:To="Package\ETL_dim_estado"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_6]"
+      DTS:CreationName=""
+      DTS:DTSID="{7007A662-BCCA-4334-BB7F-9179599E910E}"
+      DTS:From="Package\ETL_dim_estado"
+      DTS:ObjectName="Constraint_6"
+      DTS:To="Package\GET_LAST_RESULTADO_ID"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_7]"
+      DTS:CreationName=""
+      DTS:DTSID="{9703D542-EC09-4651-A3A3-991559533F90}"
+      DTS:From="Package\GET_LAST_RESULTADO_ID"
+      DTS:ObjectName="Constraint_7"
+      DTS:To="Package\ETL_fact_resultado_corrida"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_8]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0AB11E6-7777-4993-96B7-8AC0F05BBCBC}"
+      DTS:From="Package\ETL_fact_resultado_corrida"
+      DTS:ObjectName="Constraint_8"
+      DTS:To="Package\GET_LAST_PITSTOP_ID"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_9]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0AA1053-B8BE-4477-B03D-2CF438B32C85}"
+      DTS:From="Package\GET_LAST_PITSTOP_ID"
+      DTS:ObjectName="Constraint_9"
+      DTS:To="Package\ETL_fact_pit_stop"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_10]"
+      DTS:CreationName=""
+      DTS:DTSID="{00FFCE8A-B4BD-4E25-9EB0-4962F5851557}"
+      DTS:From="Package\ETL_fact_pit_stop"
+      DTS:ObjectName="Constraint_10"
+      DTS:To="Package\GET_LAST_INCIDENTE_ID"/>
+    <DTS:PrecedenceConstraint DTS:refId="Package.PrecedenceConstraints[Constraint_11]"
+      DTS:CreationName=""
+      DTS:DTSID="{81900372-88D8-4120-89DF-3CCEA01BF3D2}"
+      DTS:From="Package\GET_LAST_INCIDENTE_ID"
+      DTS:ObjectName="Constraint_11"
+      DTS:To="Package\ETL_fact_incidente_seguranca"/>
+  </DTS:PrecedenceConstraints>
+
+  <DTS:PackageParameters/>
+  <DTS:Configurations/>
+  <DTS:EventHandlers/>
+
+</DTS:Executable>
